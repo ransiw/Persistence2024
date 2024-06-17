@@ -97,12 +97,15 @@ attobject = att_it(yname=obsname, tname="Year",idname= "unitid", gname = "smoke_
                    cohortnames = c("smoke_intensity", "Test"), data = panelMath_dropNAs, panel=FALSE, est_method = "ipw")
 
 
-saveRDS(attobject, file.path(didpath, paste0("Math_","All_",obsname,"Urban.rds")))
-
 attdf = attit_table(attobject)
 attdf = attdf %>% left_join(distinct(panelMath_dropNAs,unitid,smoke_group,smoke_intensity,num20schools,Num_Records_2019) %>% rename(id=unitid))
-write.csv(attdf,file.path(plotpath,paste0("Math_","All_",obsname,"_Urban.csv")))
+#write.csv(attdf,file.path(didpath,paste0("Math_","All_",obsname,"Urban.csv")))
 
+agtobject = aggite(attobject, type = "dynamic", na.rm = TRUE)
+agtobject$overall.att
+agtobject$overall.se
+agtdynamic = aggite_table(agtobject)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_dynamic.csv")), row.names = FALSE)
 
 
 attobject = att_it(yname=obsname, tname="Year",idname= "unitid", gname = "smoke_group", xformla = ~ Num_Records_2019,
@@ -125,8 +128,4 @@ agtobject$overall.att
 agtobject$overall.se
 agttest = aggite_table(agtobject)
 
-agtobject = aggite(attobject, type = "dynamic", na.rm = TRUE)
-agtobject$overall.att
-agtobject$overall.se
-agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(plotpath,paste0("Math_","All_",obsname,"Urban_dynamic.csv")))
+
