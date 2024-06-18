@@ -40,7 +40,7 @@ panelMath_dropNAs = panelMath_dropNAs %>%
 
 # choose the panelMath settings
 panelMath_dropNAs = panelMath_dropNAs %>%
-  filter(Setting %in% c("Denver Metro", "Urban-Suburban"))
+  filter(Setting %in% c("Denver Metro"))
 
 smokedf2021 = unique(panelMath_dropNAs[,c("District_Code", "School_Code", "all_smoke_2021")])
 hist(smokedf2021$all_smoke_2021, n=20)
@@ -101,13 +101,13 @@ attobject = att_it(yname=obsname, tname="Year",idname= "unitid", gname = "smoke_
 
 attdf = attit_table(attobject)
 attdf = attdf %>% left_join(distinct(panelMath_dropNAs,unitid,smoke_group,Test,smoke_intensity,num20schools,Num_Records_2019) %>% rename(id=unitid))
-#write.csv(attdf,file.path(didpath,paste0("Math_","All_",obsname,"Urban.csv")))
+#write.csv(attdf,file.path(didpath,paste0("Math_","All_",obsname,"Denver.csv")))
 
 agtobject = aggite(attobject, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_dynamic.csv")), row.names = FALSE)
 
 # Grade level
 
@@ -124,7 +124,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test3_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test3_dynamic.csv")), row.names = FALSE)
 
 
 ## Test 4
@@ -140,7 +140,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test4_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test4_dynamic.csv")), row.names = FALSE)
 
 
 ## Test 5
@@ -156,7 +156,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test5_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test5_dynamic.csv")), row.names = FALSE)
 
 
 ## Test 6
@@ -172,7 +172,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test6_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test6_dynamic.csv")), row.names = FALSE)
 
 
 
@@ -189,7 +189,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test7_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test7_dynamic.csv")), row.names = FALSE)
 
 
 ## Test 8
@@ -205,7 +205,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test8_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test8_dynamic.csv")), row.names = FALSE)
 
 
 #### Competency Rate ####
@@ -241,7 +241,7 @@ panelMath_dropNAs = panelMath_dropNAs %>%
 
 # choose the panelMath settings
 panelMath_dropNAs = panelMath_dropNAs %>%
-  filter(Setting %in% c("Denver Metro", "Urban-Suburban"))
+  filter(Setting %in% c("Denver Metro"))
 
 smokedf2021 = unique(panelMath_dropNAs[,c("District_Code", "School_Code", "all_smoke_2021")])
 hist(smokedf2021$all_smoke_2021, n=20)
@@ -302,13 +302,13 @@ attobject = att_it(yname=obsname, tname="Year",idname= "unitid", gname = "smoke_
 
 attdf = attit_table(attobject)
 attdf = attdf %>% left_join(distinct(panelMath_dropNAs,unitid,smoke_group,Test,smoke_intensity,num20schools,Num_Records_2019) %>% rename(id=unitid))
-#write.csv(attdf,file.path(didpath,paste0("Math_","All_",obsname,"Urban.csv")))
+#write.csv(attdf,file.path(didpath,paste0("Math_","All_",obsname,"Denver.csv")))
 
 agtobject = aggite(attobject, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_dynamic.csv")), row.names = FALSE)
 
 # Grade level
 
@@ -325,7 +325,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test3_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test3_dynamic.csv")), row.names = FALSE)
 
 
 ## Test 4
@@ -341,7 +341,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test4_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test4_dynamic.csv")), row.names = FALSE)
 
 
 ## Test 5
@@ -357,7 +357,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test5_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test5_dynamic.csv")), row.names = FALSE)
 
 
 ## Test 6
@@ -373,7 +373,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test6_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test6_dynamic.csv")), row.names = FALSE)
 
 
 
@@ -390,7 +390,7 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test7_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test7_dynamic.csv")), row.names = FALSE)
 
 
 ## Test 8
@@ -406,6 +406,6 @@ agtobject = aggite(attobject_grade, type = "dynamic", na.rm = TRUE)
 agtobject$overall.att
 agtobject$overall.se
 agtdynamic = aggite_table(agtobject)
-write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Urban_Test8_dynamic.csv")), row.names = FALSE)
+write.csv(agtdynamic,file.path(didpath,paste0("Math_","All_",obsname,"Denver_Test8_dynamic.csv")), row.names = FALSE)
 
 
