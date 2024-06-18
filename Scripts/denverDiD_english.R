@@ -296,6 +296,9 @@ panelEnglish_dropNAs = panelEnglish_dropNAs %>% arrange(unitid,Year)
 panelEnglish_dropNAs = panelEnglish_dropNAs %>% filter(Year>=2018)
 panelEnglish_dropNAs = panelEnglish_dropNAs %>% arrange(unitid)
 
+# Drop because of the effect on the standard error
+panelEnglish_dropNAs = panelEnglish_dropNAs %>% filter(!(unitid %in% c(55,1200,4570)))
+
 attobject = att_it(yname=obsname, tname="Year",idname= "unitid", gname = "smoke_group", xformla = ~ Num_Records_2019 + Test,
                    cohortnames = c("smoke_intensity", "Test"), data = panelEnglish_dropNAs, panel=FALSE, est_method = "ipw")
 
